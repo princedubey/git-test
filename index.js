@@ -1,9 +1,17 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
+const bodyParser = require('body-parser')
+const { connectToDatabase } = require('./src/database/connection')
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+
+connectToDatabase()
+
+app.use(cors())
+app.use(bodyParser.json())
 
 app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
