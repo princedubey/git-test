@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+app.get('/prince', (req, res) => {
+  res.send('Welcome prince');
+});
+
 connectToDatabase()
 
 app.use(cors())
