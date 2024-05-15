@@ -1,13 +1,12 @@
 const { Sequelize } = require('sequelize');
-const mysql = require('mysql2')
+const mysql = require('mysql2/promise')
 
 require('dotenv').config();
 
-const sequelize = new Sequelize(process.env.MYSQL_ADDON_URI);
 
 async function connectToDatabase() {
   try {
-    await sequelize.authenticate();
+    await mysql.createConnection(process.env.MYSQL_ADDON_URI);
     console.log('Database connection has been established successfully.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
