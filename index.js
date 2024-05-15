@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const { connectToDatabase } = require('./src/database/connection')
-const mysql = require('mysql2')
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
