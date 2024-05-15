@@ -6,7 +6,8 @@ require('dotenv').config();
 
 async function connectToDatabase() {
   try {
-    await mysql.createConnection(process.env.MYSQL_ADDON_URI);
+    const sequelize = new Sequelize(process.env.MYSQL_ADDON_URI);
+    await sequelize.authenticate();
     console.log('Database connection has been established successfully.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
