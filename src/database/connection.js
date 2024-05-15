@@ -1,4 +1,6 @@
 const { Sequelize } = require('sequelize');
+const mysql = require('mysql2')
+
 require('dotenv').config();
 
 const sequelize = new Sequelize(process.env.MYSQL_ADDON_URI);
